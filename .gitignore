@@ -1,0 +1,12 @@
+.DS_Store
+.Python
+.idea/
+bin/
+include/
+lib/
+man/
+share/
+*.swp
+*.sqlite3
+*.py[cd]
+
