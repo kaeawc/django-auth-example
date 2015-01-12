@@ -8,13 +8,18 @@ class AuthManager(object):
     @classmethod
     def create_user(cls, email, password):
 
-        user = User.objects.create_user(username=email, email=email, password=password)
-
         try:
+            user = User.objects.create_user(username=email, email=email, password=password)
             user.save()
-        except IntegrityError:
-            return {u"ok": False, u"reason": u"A user already exists with the given email address."}
+        except IntegrityError as ex:
+
+            msg = ex.message.lower()
+
+            if u"unique" in msg:
+                return {u"ok": False, u"reason": u"A user already exists with the given email address."}
+
+            raise ex
         except Exception as ex:
-            return {u"ok": False, u"reason": ex.message}
+            raise ex
         else:
             return {u"ok": True, u"user": {u"id": user.id}}
