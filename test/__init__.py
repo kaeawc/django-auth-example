@@ -37,10 +37,14 @@ class ServerResponse:
         self.reason = None
         self.duration = duration
         self.controller = None
-        self.response = None
+        self.response = {}
 
         if isinstance(response, JsonResponse):
-            self.response = dict(json.loads(response.content))
+            try:
+                self.response = dict(json.loads(str(response.content)))
+            except:
+                pass
+
             self.__dict__.update(self.response)
 
         else:
