@@ -13,7 +13,7 @@ class AuthManager(object):
             user.save()
         except IntegrityError as ex:
 
-            msg = ex.message.lower()
+            msg = ex.__str__().lower()
 
             if u"unique" in msg:
                 return {u"ok": False, u"reason": u"A user already exists with the given email address."}

@@ -48,8 +48,8 @@ def signup(request):
 
     try:
         result = AuthManager.create_user(email=email, password=password)
-    except Exception as ex:
-        return {u"ok": False, u"status": 500, u"reason": u"Could not save user."}
+    except:
+        return {u"ok": False, u"status": 500, u"reason": u"Could not save user"}
 
     if result[u"ok"] is True:
         result[u"status"] = 201
