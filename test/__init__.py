@@ -16,7 +16,7 @@ class DjangoTestCase(TestCase):
         response = self.client.get(path)
         end_time = datetime.utcnow()
         duration = (start_time - end_time).total_seconds() * 1000
-        return ServerResponse(response, client=self.client, duration=duration)
+        return ServerResponse(response, duration=duration)
 
     def http_post(self, path, data=None, content_type=None):
 
@@ -27,12 +27,12 @@ class DjangoTestCase(TestCase):
         response = self.client.post(path, data)
         end_time = datetime.utcnow()
         duration = (start_time - end_time).total_seconds() * 1000
-        return ServerResponse(response, client=self.client, duration=duration)
+        return ServerResponse(response, duration=duration)
 
 
 class ServerResponse:
 
-    def __init__(self, response, client, duration):
+    def __init__(self, response, duration):
         self.ok = False
         self.reason = None
         self.duration = duration
@@ -41,9 +41,10 @@ class ServerResponse:
 
         if isinstance(response, JsonResponse):
             try:
-                self.response = dict(json.loads(str(response.content)))
-            except:
-                pass
+                self.response = json.loads(response.content.decode('utf-8'))
+            except Exception as ex:
+                print(type(ex))
+                print(ex)
 
             self.__dict__.update(self.response)
 
@@ -56,7 +57,7 @@ class ServerResponse:
             return u"ok, %s" % self.response
 
         if self.reason is not None:
-            return u"is not okay because %s: %s" % (self.reason, self.response)
+            return u"not okay because %s: %s" % (self.reason, self.response)
 
         if self.response:
             return self.response
