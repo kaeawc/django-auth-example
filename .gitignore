@@ -9,4 +9,5 @@ share/
 *.swp
 *.sqlite3
 *.py[cd]
+.tox/
 
