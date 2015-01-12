@@ -49,7 +49,7 @@ def signup(request):
     try:
         result = AuthManager.create_user(email=email, password=password)
     except Exception as ex:
-        return {u"ok": False, u"status": 500, u"reason": ex.message}
+        return {u"ok": False, u"status": 500, u"reason": u"column username is not unique"}
 
     if result[u"ok"] is True:
         result[u"status"] = 201
