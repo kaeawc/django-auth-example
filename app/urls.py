@@ -9,8 +9,8 @@ urlpatterns = patterns('',
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 
     # Info
-    url(r'^$', 'app.controllers.info.landing', name="landing"),
-    url(r'^authors$', 'app.controllers.info.authors', name="authors"),
+    url(r'^$', 'app.controllers.info.landing', name='landing'),
+    url(r'^authors$', 'app.controllers.info.authors', name='authors'),
 
     # Authentication
     url(r'^login$', 'app.controllers.auth.login', name='login'),
@@ -19,7 +19,7 @@ urlpatterns = patterns('',
     url(r'^deauth$', 'app.controllers.auth.deauth', name='deauth'),
 
     # User
-    url(r'^profile$', 'app.controllers.user.profile', name='user_profile'),
-    url(r'^preferences$', 'app.controllers.user.preferences', name='user_preferences'),
+    url(r'^profile$', 'app.controllers.user.profile', name='profile'),
+    url(r'^preferences$', 'app.controllers.user.preferences', name='preferences'),
 
 )
