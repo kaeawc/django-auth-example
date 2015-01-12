@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*
-import unittest
-from client.account import Account
+from test.account import Account
+from test.account import AccountTestCase
 
 
-class SignupSpec(unittest.TestCase):
+class SignupSpec(AccountTestCase):
 
     def test_success(self):
         """
@@ -13,7 +13,7 @@ class SignupSpec(unittest.TestCase):
         email = Account.create_email()
         password = Account.create_password()
 
-        account, response = Account.signup(email=email, password=password, password_confirmation=password)
+        account, response = self.signup(email=email, password=password, password_confirmation=password)
 
         assert response is not None
         assert response.ok is True, response
@@ -27,10 +27,10 @@ class SignupSpec(unittest.TestCase):
         password = Account.create_password()
 
         # Original signup
-        Account.signup(email=email, password=password, password_confirmation=password)
+        self.signup(email=email, password=password, password_confirmation=password)
 
         # Another signup using the same email
-        account, response = Account.signup(email=email, password=password, password_confirmation=password)
+        account, response = self.signup(email=email, password=password, password_confirmation=password)
 
         assert response is not None
         assert response.ok is False, response
@@ -44,7 +44,7 @@ class SignupSpec(unittest.TestCase):
         email = Account.create_email()
         password = Account.create_password()[:4]
 
-        account, response = Account.signup(email=email, password=password, password_confirmation=password)
+        account, response = self.signup(email=email, password=password, password_confirmation=password)
 
         assert response is not None
         assert response.ok is False, u"Response is %s" % response
@@ -60,7 +60,7 @@ class SignupSpec(unittest.TestCase):
         another_password = Account.create_password()
 
         # Original signup
-        account, response = Account.signup(email=email, password=password, password_confirmation=another_password)
+        account, response = self.signup(email=email, password=password, password_confirmation=another_password)
 
         assert response is not None
         assert response.ok is False, u"Response is %s" % response
@@ -71,7 +71,7 @@ class SignupSpec(unittest.TestCase):
         If any or all fields are missing from signup submission the user should be denied.
         """
 
-        account, response = Account.signup()
+        account, response = self.signup()
 
         assert response is not None
         assert response.ok is False, u"Response is %s" % response

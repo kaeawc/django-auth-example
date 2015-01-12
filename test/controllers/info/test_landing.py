@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*
-import unittest
-from client import Client
+from test import DjangoTestCase
 
 
-class LandingSpec(unittest.TestCase):
+class LandingSpec(DjangoTestCase):
 
     def test_success(self):
         """
-        Anyone should be able to view the landing page
+        Anyone should be able to view the authors page
         """
-        response = Client.http_get(u"")
+        response = self.http_get(u"/")
 
         assert response is not None
         assert response.ok is True, response
