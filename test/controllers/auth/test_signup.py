@@ -34,7 +34,7 @@ class SignupSpec(AccountTestCase):
 
         assert response is not None
         assert response.ok is False, response
-        assert response.reason.startswith(u"column username is not unique"), u"Response is %s" % response
+        assert response.reason.startswith(u"A user already exists with the given email address."), u"Response is %s" % response
 
     def test_short_password(self):
         """
