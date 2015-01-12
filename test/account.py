@@ -17,7 +17,7 @@ class Account(object):
 
     @staticmethod
     def create_password(length=20):
-        return u"".join([random.choice(string.digits) for _ in xrange(length)])
+        return u"".join([random.choice(string.digits) for _ in range(length)])
 
 
 class AccountTestCase(DjangoTestCase):
