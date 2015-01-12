@@ -1,0 +1,12 @@
+README.rst
+setup.cfg
+setup.py
+app/__init__.py
+app/settings.py
+app/urls.py
+app/wsgi.py
+django_auth_example.egg-info/PKG-INFO
+django_auth_example.egg-info/SOURCES.txt
+django_auth_example.egg-info/dependency_links.txt
+django_auth_example.egg-info/not-zip-safe
+django_auth_example.egg-info/top_level.txt

@@ -6,7 +6,7 @@ source = 'https://github.com/kaeawc/django-auth-example'
 
 setup_args = dict(
     name='django-auth-example',
-    packages=['django-auth-example'],
+    packages=['app'],
     version=version,
     author='Jason Pearson',
     author_email='jason.d.pearson@gmail.com',

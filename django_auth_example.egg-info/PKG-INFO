@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: django-auth-example
+Version: 1.0
+Summary: Example of Django app with Auth
+Home-page: https://github.com/kaeawc/django-auth-example
+Author: Jason Pearson
+Author-email: jason.d.pearson@gmail.com
+License: MIT
+Download-URL: https://github.com/kaeawc/django-auth-example/archive/1.0.zip
+Description: UNKNOWN
+Keywords: django auth example
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Toto
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
