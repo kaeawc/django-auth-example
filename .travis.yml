@@ -2,7 +2,16 @@ language: python
 python:
   - "2.7"
   - "3.4"
+env:
+  global:
+    # HEROKU_API_KEY
+    - secure: "NTumfdtkl9r+Jt7kAfSb6jK33eRsXMhdLqea5dMMubH+OSYlvoGaUD6JEuQ4CRlpCd5yYxI79eOMDM17ImyTkR1kBtKKwkdHRT6vudGNYgdt7uAP1lz2WLjAexYynWDsg6eh7sD0hM3qD+xnt4gl5vdCd751d4QfGMXXGFb4ejc="
+
 install:
   - pip install -r requirements.txt
 script:
   - python manage.py test
+deploy:
+  provider: heroku
+  api_key: $HEROKU_API_KEY
+
