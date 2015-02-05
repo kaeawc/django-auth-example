@@ -38,7 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gunicorn',
-    'django_nose'
+    'django_nose',
+    'opbeat.contrib.django',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -86,3 +87,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATIC_URL = '/static/'
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+OPBEAT = {
+    "ORGANIZATION_ID": "03e37bf3e1ea4c01a9611fef295b172b",
+    "APP_ID": "ddb17607d3",
+    "SECRET_TOKEN": "870956d5b4eaee932c99de5760eadc85cac482e4"
+}
+
